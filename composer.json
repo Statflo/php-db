@@ -1,0 +1,18 @@
+{
+    "name": "statflo/php-db",
+    "description": "DB package statflo php projects",
+    "type": "library",
+    "require": {
+        "doctrine/dbal": "v2.4.5"
+    },
+    "license": "COPYRIGHT",
+    "authors": [
+        {
+            "name": "Kinn Coelho Juliao",
+            "email": "kinn@statflo.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Statflo\\": "src/Statflo"}
+    }
+}
