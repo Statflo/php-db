@@ -7,7 +7,7 @@ class Criteria
     public $condition;
     public $value;
 
-    public function __construct($condition, $value)
+    public function __construct($condition, $value = null)
     {
         $this->condition = $condition;
         $this->value     = $value;

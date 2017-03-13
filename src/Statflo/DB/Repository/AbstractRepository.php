@@ -32,7 +32,6 @@ abstract class AbstractRepository
         $queryBuilder = $this->connection->createQueryBuilder();
         $operator     = $operator ?: Operator::_AND;
         $counter      = 0;
-        $x = [];
 
         $queryBuilder
             ->select($properties)
@@ -41,11 +40,12 @@ abstract class AbstractRepository
 
         foreach ($criteria as $c) {
             foreach ($c->get() as $k => $v) {
-                $queryBuilder
-                    ->{$operator}($k)
-                    ->setParameter($counter++, $v)
-                ;
-                $x[$k] = $v;
+                if ($v) {
+                    $queryBuilder
+                        ->{$operator}($k)
+                        ->setParameter($counter++, $v)
+                    ;
+                }
             }
         }
 
