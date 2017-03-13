@@ -40,10 +40,12 @@ abstract class AbstractRepository
 
         foreach ($criteria as $c) {
             foreach ($c->get() as $k => $v) {
-                if ($v) {
-                    $queryBuilder
-                        ->{$operator}($k)
-                        ->setParameter($counter++, $v)
+                $queryBuilder
+                    ->{$operator}($k)
+                ;
+                if (!is_null($v)) {
+                        $queryBuilder
+                            ->setParameter($counter++, $v)
                     ;
                 }
             }
