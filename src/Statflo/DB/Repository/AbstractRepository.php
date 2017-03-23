@@ -9,8 +9,14 @@ use Statflo\DB\Entity\Timestampable;
 
 abstract class AbstractRepository
 {
+    /**
+     * @var Connection
+     */
     private $connection;
 
+    /**
+     * @param Connection $connection
+     */
     public function __construct(Connection $connection)
     {
         $this->connection = $connection;
@@ -19,6 +25,14 @@ abstract class AbstractRepository
     abstract public function getEntityName();
 
     abstract public function getTableName();
+
+    /**
+     * @return Connection $connection
+     */
+    public function getConnection()
+    {
+        return $this->connection;
+    }
 
     /**
      * @param Criteria[]
