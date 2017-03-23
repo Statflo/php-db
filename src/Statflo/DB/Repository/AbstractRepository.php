@@ -162,17 +162,17 @@ abstract class AbstractRepository
         return $this->connection->insert($this->getRealTableName(), $parameters, $parametersType);
     }
 
-    private function getReflectedEntity()
+    protected function getReflectedEntity()
     {
         return new \ReflectionClass($this->getEntityName());
     }
 
-    private function getProperties()
+    protected function getProperties()
     {
         return array_map(function($p){ return $p->getName();}, $this->getReflectedEntity()->getProperties());
     }
 
-    private function getRealTableName()
+    protected function getRealTableName()
     {
         return $this
             ->connection
