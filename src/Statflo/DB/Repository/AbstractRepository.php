@@ -4,6 +4,7 @@ namespace Statflo\DB\Repository;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Query\QueryBuilder;
+use Statflo\DB\Connection as StatfloConnection;
 use Statflo\DB\Entity\Entity;
 use Statflo\DB\Entity\Timestampable;
 
@@ -172,16 +173,27 @@ abstract class AbstractRepository
         return array_map(function($p){ return $p->getName();}, $this->getReflectedEntity()->getProperties());
     }
 
+
     protected function getRealTableName()
     {
+        $schema = $this
+                ->connection
+                ->getDatabase()
+        ;
+
+        if ($this->connection instanceof StatfloConnection) {
+            $schema = $this
+               ->connection
+               ->getSchema()
+           ;
+        }
+
         return $this
             ->connection
             ->quoteIdentifier(
                 sprintf(
                     '%s.%s',
-                    $this
-                        ->connection
-                        ->getDatabase(),
+                    $schema,
                     $this->getTableName()
                 )
             )
