@@ -12,7 +12,7 @@ abstract class AbstractRepository
     /**
      * @var Connection
      */
-    private $connection;
+    protected $connection;
 
     /**
      * @param Connection $connection
