@@ -5,7 +5,7 @@
     "require": {
         "doctrine/dbal": "v2.9.2"
     },
-    "license": "COPYRIGHT",
+    "license": "0BSD",
     "authors": [
         {
             "name": "Kinn Coelho Juliao",
