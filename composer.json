@@ -3,7 +3,7 @@
     "description": "DB package statflo php projects",
     "type": "library",
     "require": {
-        "doctrine/dbal": "v2.9.2"
+        "doctrine/dbal": "^2.6"
     },
     "license": "0BSD",
     "authors": [
