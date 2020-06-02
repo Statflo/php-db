@@ -133,8 +133,6 @@ abstract class AbstractRepository
 
                 $parameters[$data] = $property->getValue($entity);
 
-                $type = \PDO::PARAM_STR;
-
                 switch (gettype($parameters[$data])) {
                     case "boolean":
                         $parametersType[] = \PDO::PARAM_BOOL;
